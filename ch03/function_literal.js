@@ -1,5 +1,5 @@
 // 函数字面量
-var add = function (a, b) {
+var add = function(a, b) {
 	return a + b;
 }
 
@@ -22,10 +22,10 @@ console.log(myObject.value); // 3
 
 // 函数调用模式
 // this 被绑定到全局对象
-myObject.double = function () {
+myObject.double = function() {
 	var that = this; // 解决 this 绑定全局对象的问题
 
-	var helper = function () {
+	var helper = function() {
 		that.value = add(that.value, that.value);
 	};
 
@@ -40,12 +40,12 @@ console.log(myObject.value); // 6
 // 构造器调用模式
 // 如果在一个函数前面带上 new 来调用，那么将会创建一个链接到该函数的 prototype 成员的新对象，同时 this 会被绑定到那个新对象上
 // 创建一个名为 Quo 的构造器函数，它构造一个带有 status 属性的对象
-var Quo = function (str) {
+var Quo = function(str) {
 	this.status = str;
 };
 
 // 给 Quo 的所有实例提供一个名为 get_status 的公共方法
-Quo.prototype.get_status = function(){
+Quo.prototype.get_status = function() {
 	return this.status;
 };
 
