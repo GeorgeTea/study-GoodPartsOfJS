@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>closure</title>
+</head>
+<body>
+    <div id="list"><li>1</li><li>2</li><li>3</li><li>4</li><li>5</li></div>
+    <script type="text/javascript">
+        (function(){
+            var add_handlers = function(){
+                var helper = function(i){
+                    return function(e){
+                        alert(i);
+                    };
+                };
+                var nodes = document.getElementById('list').childNodes;
+                var i;
+                for(i=0;i<nodes.length;i++){
+                    // nodes[i].onclick = function(e){
+                    //     alert(i);
+                    // }
+                    nodes[i].onclick = helper(i);
+                }
+            };
+            add_handlers();
+        }());
+    </script>
+</body>
+</html>
